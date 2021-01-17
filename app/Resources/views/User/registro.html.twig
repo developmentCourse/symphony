@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+{% block contenido %}
+    <h3>REGISTRO DE NUEVO USUARIO</h3>
+<form action="{{ path('completar_registro_usuario') }}" method="post">
+    Username:
+    <input type="text" id="username" name="_username">
+    <br>
+    Password:
+    <input type="password" id="password" name="_password">
+    <br>
+    <input type="submit" value="Registrar">
+</form>
+{% endblock %}

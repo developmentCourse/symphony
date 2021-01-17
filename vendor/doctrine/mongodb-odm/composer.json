@@ -1,0 +1,53 @@
+{
+    "name": "doctrine/mongodb-odm",
+    "type": "library",
+    "description": "Doctrine MongoDB Object Document Mapper",
+    "keywords": ["odm", "database", "persistence", "mongodb"],
+    "homepage": "http://www.doctrine-project.org",
+    "license": "MIT",
+    "authors": [
+        { "name": "Bulat Shakirzyanov", "email": "mallluhuct@gmail.com" },
+        { "name": "Kris Wallsmith", "email": "kris.wallsmith@gmail.com" },
+        { "name": "Jonathan H. Wage", "email": "jonwage@gmail.com" },
+        { "name": "Jeremy Mikola", "email": "jmikola@gmail.com" },
+        { "name": "Maciej Malarz", "email": "malarzm@gmail.com" },
+        { "name": "Andreas Braun", "email": "alcaeus@alcaeus.org" }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "symfony/console": "~2.3|~3.0|^4.0|^5.0",
+        "doctrine/annotations": "~1.2",
+        "doctrine/collections": "~1.1",
+        "doctrine/common": "^2.5.0",
+        "doctrine/cache": "~1.0",
+        "doctrine/inflector": "~1.0",
+        "doctrine/instantiator": "^1.0.1",
+        "doctrine/mongodb": "^1.6.4"
+    },
+    "require-dev": {
+        "phpbench/phpbench": "^0.13.0",
+        "phpunit/phpunit": "^5.7.21|^7.5",
+        "symfony/yaml": "~2.3|~3.0|^4.0"
+    },
+    "suggest": {
+        "symfony/yaml": "Enables the YAML metadata mapping driver",
+        "alcaeus/mongo-php-adapter": "Allows usage of PHP 7"
+    },
+    "autoload": {
+        "psr-0": { "Doctrine\\ODM\\MongoDB": "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\ODM\\MongoDB\\Benchmark\\": "benchmark",
+            "Doctrine\\ODM\\MongoDB\\Tests\\": "tests/Doctrine/ODM/MongoDB/Tests",
+            "Documents\\": "tests/Documents",
+            "Stubs\\": "tests/Stubs",
+            "TestDocuments\\" :"tests/Doctrine/ODM/MongoDB/Tests/Mapping/Driver/fixtures"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2.x-dev"
+        }
+    }
+}

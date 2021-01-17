@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" id="nombre" value="{{ cliente.nombre }}">
+            </div>
+            <div class="form-group">
+                <label>Apellido Paterno:</label>
+                <input type="text" class="form-control" id="apPaterno" value="{{ cliente.apPaterno }}">
+            </div>
+            <div class="form-group">
+                <label>Apellido Materno:</label>
+                <input type="text" class="form-control" id="apMaterno" value="{{ cliente.apMaterno }}">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success" id="btnGuardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('#btnGuardar').click(function(){
+            var id = '{{ cliente.id }}';
+            var nombre = $('#nombre').val();
+            var apPaterno = $('#apPaterno').val();
+            var apMaterno = $('#apMaterno').val();
+            $.post("{{ path('api_actualizar_clientes') }}",{
+                id: id,
+                nombre: nombre,
+                apPaterno: apPaterno,
+                apMaterno: apMaterno,
+            },
+            function (data, status){
+                alert(data);
+            });
+        });
+    </script>
+{% endblock %}

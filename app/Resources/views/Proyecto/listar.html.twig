@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Cliente</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for proyecto in proyectos %}
+                    <tr>
+                        <td>{{ proyecto.id }}</td>
+                        <td>{{ proyecto.nombre }}</td>
+                        <td>{{ proyecto.descripcion }}</td>
+                        <td>{{ proyecto.cliente.nombre }} {{ proyecto.cliente.apPaterno }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('.btnEliminar').click(function (){
+            var id = $(this).attr('data-id');
+            $.post("{{ path('api_eliminar_clientes') }}",{
+                    id: id,
+                },
+                function (data, status){
+                    alert(data);
+                    location.reload();
+                });
+        });
+    </script>
+{% endblock %}

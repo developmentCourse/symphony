@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% block titulo %}
+    Demo1
+{% endblock %}
+{% block pie %}{% endblock %}
+{% block contenido %}
+<table width="40%" border="1">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for persona in personas %}
+        <tr>
+            <td>
+                {{ persona.nombre }}
+            </td>
+            <td>
+                {{ persona.apellido }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

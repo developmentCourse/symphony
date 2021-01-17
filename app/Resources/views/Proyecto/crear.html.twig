@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="form-group">
+                <label>Descripcion:</label>
+                <input type="text" class="form-control" id="descripcion">
+            </div>
+            <div class="form-group">
+                <label>Cliente:</label>
+                <select id="cliente" class="form-control">
+                    {% for c in clientes %}
+                        <option value="{{ c.id }}">{{ c.nombre }} {{ c.apPaterno }} {{ c.apMaterno }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success" id="btnGuardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('#btnGuardar').click(function(){
+            var nombre = $('#nombre').val();
+            var descripcion = $('#descripcion').val();
+            var cliente = $('#cliente').val();
+            $.post("{{ path('api_crear_proyecto') }}",{
+                nombre: nombre,
+                descripcion: descripcion,
+                cliente: cliente,
+            },
+            function (data, status){
+                alert(data);
+            });
+        });
+    </script>
+{% endblock %}
